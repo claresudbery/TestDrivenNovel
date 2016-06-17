@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace TestDrivenNovel
 {
-    [TestFixture]
+    [TestFixture] 
     class NovelTests
     {
         [Test]
