@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace TestDrivenNovel
 {
     [TestFixture] 
-    class NovelTests
+    class NovelTests 
     {
         [Test]
         public void Protagonist_changes_state_during_chapter_one()
