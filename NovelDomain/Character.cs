@@ -2,6 +2,6 @@
 {
     public sealed class Character
     {
-        public bool State { get; set; }
+        public bool State { get; set; } 
     }
 }
