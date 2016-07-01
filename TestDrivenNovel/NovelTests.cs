@@ -1,4 +1,4 @@
-﻿using System;
+﻿using NovelDomain;
 using NUnit.Framework;
 
 namespace TestDrivenNovel
@@ -51,27 +51,5 @@ namespace TestDrivenNovel
                 Assert.AreNotEqual(protagonistIsHappyAtStartOfPreviousChapter, protagonistIsHappyAtEndOfChapterUnderTest);
             }
         }
-    }
-
-    internal sealed class StuckOnATrain
-    {
-        public Character GetProtagonistAtEndOfChapter(int chapterNumber)
-        {
-            var protagonist = new Character();
-
-            protagonist.State = Convert.ToBoolean(chapterNumber % 2);
-
-            return protagonist;
-        }
-
-        public int NumChapters()
-        {
-            return 10;
-        }
-    }
-
-    internal sealed class Character
-    {
-        public bool State { get; set; }
     }
 }
