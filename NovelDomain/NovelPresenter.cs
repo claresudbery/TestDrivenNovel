@@ -33,11 +33,20 @@ namespace NovelDomain
             for (int eventNum = 1; eventNum <= chapter.NumEvents; eventNum++)
             {
                 var novelEvent = chapter.GetEvent(eventNum);
+
                 if (novelEvent.IsCrisis)
                 {
                     Console.WriteLine("The {0} event is a crisis.", 
                         GetNumberDescriptor(eventNum));
                 }
+
+                Console.WriteLine("This event happens to {0}.",
+                    novelEvent.Character.Name);
+
+                Console.WriteLine("This event happens when {0} is {1}.",
+                    novelEvent.Character.Name,
+                    novelEvent.Location);
+
                 Console.WriteLine("The {0} event is that {1}", 
                     GetNumberDescriptor(eventNum), 
                     novelEvent.Description);
@@ -83,6 +92,8 @@ namespace NovelDomain
             var lines = new List<string>();
 
             lines.Add("This novel is called " + _novelToPresent.Name + ".");
+
+            lines.Add("This novel has " + _novelToPresent.NumChapters() + " chapters.");
 
             lines.Add("The main character is called " + _novelToPresent.GetProtagonist().Name + ".");
 

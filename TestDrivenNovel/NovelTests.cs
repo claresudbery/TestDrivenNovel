@@ -146,5 +146,23 @@ namespace TestDrivenNovel
             // Assert
             Assert.AreEqual(1, novel.GetChapter(1).NumEvents);
         }
+
+        [Test]
+        public void The_location_of_an_event_must_match_its_character_location()
+        {
+            // Arrange
+            var novel = new StuckOnATrain();
+
+            // Act & Assert
+            for (int chapterNum = 1; chapterNum <= novel.NumChapters(); chapterNum++)
+            {
+                var chapter = novel.GetChapter(chapterNum);
+                for (int eventNum = 1; eventNum <= chapter.NumEvents; eventNum++)
+                {
+                    var novelEvent = chapter.GetEvent(eventNum);
+                    Assert.AreEqual(novelEvent.Location, novelEvent.Character.Location);
+                }
+            }
+        }
     }
 }
