@@ -12,7 +12,7 @@ namespace NovelOutput
     {
         static void Main(string[] args)
         {
-            var novel = new StuckOnATrain();
+            var novel = new NovelPresenter(new StuckOnATrain());
             Console.WriteLine("Welcome to my novel. It goes like this...");
             try
             {

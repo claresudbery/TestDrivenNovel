@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="INovel.cs" />
+    <Compile Include="NovelPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StuckOnATrain.cs" />
   </ItemGroup>
