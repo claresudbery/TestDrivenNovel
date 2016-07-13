@@ -17,7 +17,7 @@ namespace NovelOutput
             try
             {
                 novel.ShowText();
-                Console.WriteLine("Press any key to end.");
+                Console.WriteLine("Press enter to end.");
                 Console.ReadLine();
             }
             catch (Exception)

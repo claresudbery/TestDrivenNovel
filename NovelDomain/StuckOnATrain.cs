@@ -25,7 +25,7 @@ namespace NovelDomain
 
         private string GetLocation(int chapterNumber)
         {
-            return chapterNumber == 0 ? "Not on the train" : "On the train";
+            return chapterNumber == 0 ? "not on the train" : "on the train";
         }
 
         private void InitialiseProtagonist()

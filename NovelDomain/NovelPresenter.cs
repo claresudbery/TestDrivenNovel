@@ -14,6 +14,7 @@ namespace NovelDomain
 
         public void ShowText()
         {
+            Console.WriteLine("");
             ShowIntro();
             Console.WriteLine("");
             for (int chapterNum = 1; chapterNum <= _novelToPresent.NumChapters(); chapterNum++)
@@ -43,7 +44,9 @@ namespace NovelDomain
         {
             var lines = new List<string>();
 
-            lines.Add("Our main character is called " + _novelToPresent.GetProtagonist().Name + ".");
+            lines.Add("This novel is called " + _novelToPresent.Name + ".");
+
+            lines.Add("The main character is called " + _novelToPresent.GetProtagonist().Name + ".");
 
             lines.Add(string.Format("At the start of the book, {0} is {1}.",
                 _novelToPresent.GetProtagonist().Name,
