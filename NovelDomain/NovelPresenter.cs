@@ -34,7 +34,7 @@ namespace NovelDomain
 
         private void ShowIntro()
         {
-            string line1 = "Our main character is called " + GetProtagonist().Name + ".";
+            string line1 = "Our main character is called " + _novelToPresent.GetProtagonist().Name + ".";
             string line2 = string.Format("At the start of the book, {0} is {1}.",
                 _novelToPresent.GetProtagonist().Name,
                 _novelToPresent.GetHappiness(0));
