@@ -20,9 +20,47 @@ namespace NovelDomain
             for (int chapterNum = 1; chapterNum <= _novelToPresent.NumChapters(); chapterNum++)
             {
                 Console.WriteLine("Chapter " + chapterNum + ":");
+                ShowChapter(chapterNum);
                 EndChapter(chapterNum);
                 Console.WriteLine("");
             }
+        }
+
+        private void ShowChapter(int chapterNum)
+        {
+            var chapter = _novelToPresent.GetChapter(chapterNum);
+
+            for (int eventNum = 1; eventNum <= chapter.NumEvents; eventNum++)
+            {
+                var novelEvent = chapter.GetEvent(eventNum);
+                if (novelEvent.IsCrisis)
+                {
+                    Console.WriteLine("The {0} event is a crisis.", 
+                        GetNumberDescriptor(eventNum));
+                }
+                Console.WriteLine("The {0} event is that {1}", 
+                    GetNumberDescriptor(eventNum), 
+                    novelEvent.Description);
+            }
+        }
+
+        private string GetNumberDescriptor(int number)
+        {
+            var descriptorDictionary = new Dictionary<int, string>
+            {
+                {1, "first"},
+                {2, "second"},
+                {3, "third"},
+                {4, "fourth"},
+                {5, "fifth"},
+                {6, "sixth"},
+                {7, "seventh"},
+                {8, "eighth"},
+                {9, "ninth"},
+                {10, "tenth"},
+            };
+
+            return descriptorDictionary.ContainsKey(number) ? descriptorDictionary[number] : "nth";
         }
 
         private void EndChapter(int chapterNum)

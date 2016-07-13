@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chapter.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="NovelEvent.cs" />
     <Compile Include="INovel.cs" />
     <Compile Include="NovelPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -85,7 +85,7 @@ namespace TestDrivenNovel
             var protagonist = novel.GetProtagonistAtEndOfChapter(0);
 
             // Assert
-            Assert.AreNotEqual("On the train", protagonist.Location);
+            Assert.AreNotEqual("on the train", protagonist.Location);
         }
 
         [Test]
@@ -98,7 +98,53 @@ namespace TestDrivenNovel
             var protagonist = novel.GetProtagonistAtEndOfChapter(1);
 
             // Assert
-            Assert.AreEqual("On the train", protagonist.Location);
+            Assert.AreEqual("on the train", protagonist.Location);
+        }
+
+        [Test]
+        public void Novel_starts_with_a_crisis()
+        {
+            // Arrange
+            var novel = new StuckOnATrain();
+
+            // Act
+            Chapter chapter1 = novel.GetChapter(1);
+
+            // Assert
+            Assert.AreEqual(true, chapter1.GetEvent(1).IsCrisis);
+        }
+
+        [Test]
+        public void The_initial_crisis_is_that_protagonist_cannot_leave_the_train()
+        {
+            // Arrange
+            var novel = new StuckOnATrain();
+
+            // Act
+            Chapter chapter1 = novel.GetChapter(1);
+
+            // Assert
+            Assert.AreEqual("Aloysius cannot get off the train! The doors will not open.", chapter1.GetEvent(1).Description);
+        }
+
+        [Test]
+        public void Novel_has_one_chapter()
+        {
+            // Arrange & Act
+            var novel = new StuckOnATrain();
+
+            // Assert
+            Assert.AreEqual(1, novel.NumChapters());
+        }
+
+        [Test]
+        public void Chapter1_has_one_event()
+        {
+            // Arrange & Act
+            var novel = new StuckOnATrain();
+
+            // Assert
+            Assert.AreEqual(1, novel.GetChapter(1).NumEvents);
         }
     }
 }

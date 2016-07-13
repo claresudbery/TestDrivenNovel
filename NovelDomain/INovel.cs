@@ -12,5 +12,7 @@
         Character GetProtagonist();
 
         string GetHappiness(int chapterNum);
+
+        Chapter GetChapter(int chapterNumber);
     }
 }

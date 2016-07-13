@@ -36,7 +36,7 @@ namespace NovelDomain
 
         public int NumChapters()
         {
-            return 10;
+            return 1;
         }
 
         public string GetHappiness(int chapterNum)
@@ -47,6 +47,11 @@ namespace NovelDomain
         public Character GetProtagonist()
         {
             return _protagonist;
+        }
+
+        public Chapter GetChapter(int chapterNumber)
+        {
+            return new Chapter();
         }
     }
 }
