@@ -60,7 +60,7 @@ namespace TestDrivenNovel
 
             // Assert
             Assert.AreEqual("Stuck on a Train", novel.Name);
-        }
+        } 
 
         [Test]
         public void Protagonist_is_called_Aloysius()
