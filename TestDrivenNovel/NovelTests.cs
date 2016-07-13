@@ -74,5 +74,31 @@ namespace TestDrivenNovel
             // Assert
             Assert.AreEqual("Aloysius", protagonist.Name);
         }
+
+        [Test]
+        public void Protagonist_is_not_on_train_at_start_of_book()
+        {
+            // Arrange
+            var novel = new StuckOnATrain();
+
+            // Act
+            var protagonist = novel.GetProtagonistAtEndOfChapter(0);
+
+            // Assert
+            Assert.AreNotEqual("On the train", protagonist.Location);
+        }
+
+        [Test]
+        public void Protagonist_is_on_train_by_the_end_of_chapter_one()
+        {
+            // Arrange
+            var novel = new StuckOnATrain();
+
+            // Act
+            var protagonist = novel.GetProtagonistAtEndOfChapter(1);
+
+            // Assert
+            Assert.AreEqual("On the train", protagonist.Location);
+        }
     }
 }

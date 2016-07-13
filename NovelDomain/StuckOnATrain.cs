@@ -18,8 +18,14 @@ namespace NovelDomain
         public Character GetProtagonistAtEndOfChapter(int chapterNumber)
         {
             _protagonist.State = Convert.ToBoolean(chapterNumber % 2);
+            _protagonist.Location = GetLocation(chapterNumber);
 
             return _protagonist;
+        }
+
+        private string GetLocation(int chapterNumber)
+        {
+            return chapterNumber == 0 ? "Not on the train" : "On the train";
         }
 
         private void InitialiseProtagonist()

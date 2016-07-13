@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace NovelDomain
 {
@@ -25,22 +26,42 @@ namespace NovelDomain
 
         private void EndChapter(int chapterNum)
         {
-            string line1 = string.Format("At the end of this chapter, {0} is {1}.",
-                _novelToPresent.GetProtagonist().Name,
-                _novelToPresent.GetHappiness(chapterNum));
+            var lines = new List<string>();
 
-            Console.WriteLine(line1);
+            lines.Add(string.Format("At the end of this chapter, {0} is {1}.",
+                _novelToPresent.GetProtagonist().Name,
+                _novelToPresent.GetProtagonistAtEndOfChapter(chapterNum).Location));
+
+            lines.Add(string.Format("At the end of this chapter, {0} is {1}.",
+                _novelToPresent.GetProtagonist().Name,
+                _novelToPresent.GetHappiness(chapterNum)));
+
+            WriteLines(lines);
         }
 
         private void ShowIntro()
         {
-            string line1 = "Our main character is called " + _novelToPresent.GetProtagonist().Name + ".";
-            string line2 = string.Format("At the start of the book, {0} is {1}.",
-                _novelToPresent.GetProtagonist().Name,
-                _novelToPresent.GetHappiness(0));
+            var lines = new List<string>();
 
-            Console.WriteLine(line1);
-            Console.WriteLine(line2);
+            lines.Add("Our main character is called " + _novelToPresent.GetProtagonist().Name + ".");
+
+            lines.Add(string.Format("At the start of the book, {0} is {1}.",
+                _novelToPresent.GetProtagonist().Name,
+                _novelToPresent.GetProtagonistAtEndOfChapter(0).Location));
+
+            lines.Add(string.Format("At the start of the book, {0} is {1}.",
+                _novelToPresent.GetProtagonist().Name,
+                _novelToPresent.GetHappiness(0)));
+
+            WriteLines(lines);
+        }
+
+        private void WriteLines(List<string> lines)
+        {
+            foreach (var line in lines)
+            {
+                Console.WriteLine(line);
+            }
         }
     }
 }
