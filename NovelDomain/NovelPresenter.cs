@@ -80,7 +80,7 @@ namespace NovelDomain
 
             lines.Add(string.Format("At the end of this chapter, {0} is {1}.",
                 _novelToPresent.GetProtagonist().Name,
-                _novelToPresent.GetHappiness(chapterNum)));
+                _novelToPresent.GetHappinessAtEndOfChapter(chapterNum)));
 
             WriteLines(lines);
         }
@@ -91,13 +91,13 @@ namespace NovelDomain
 
             lines.Add("This novel is called " + _novelToPresent.Name + ".");
 
-            lines.Add("This novel has " + _novelToPresent.NumChapters() + " chapters.");
+            lines.Add("This novel has " + _novelToPresent.NumChapters() + " chapter(s).");
 
             lines.Add("The main character is called " + _novelToPresent.GetProtagonist().Name + ".");
 
             lines.Add(string.Format("At the start of the book, {0} is {1}.",
                 _novelToPresent.GetProtagonist().Name,
-                _novelToPresent.GetHappiness(0)));
+                _novelToPresent.GetHappinessAtEndOfChapter(0)));
 
             WriteLines(lines);
         }

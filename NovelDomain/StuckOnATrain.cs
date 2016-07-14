@@ -38,7 +38,7 @@ namespace NovelDomain
             return 1;
         }
 
-        public string GetHappiness(int chapterNum)
+        public string GetHappinessAtEndOfChapter(int chapterNum)
         {
             return GetProtagonistAtEndOfChapter(chapterNum).State ? "happy" : "sad";
         }

@@ -7,31 +7,33 @@ namespace TestDrivenNovel
     class NovelTests 
     {
         [Test]
-        public void Protagonist_changes_state_during_chapter_one()
+        public void Protagonist_goes_from_sad_to_happy_during_chapter_one()
         {
             // Arrange
             var novel = new StuckOnATrain();
-            bool protagonistIsHappyAtStartOfChapterOne = novel.GetProtagonistAtEndOfChapter(0).State;
 
             // Act
-            bool protagonistIsHappyAtEndOfChapterOne = novel.GetProtagonistAtEndOfChapter(1).State;
+            string protagonistIsHappyAtEndOfChapterOne = novel.GetHappinessAtEndOfChapter(1);
+            string protagonistIsHappyAtStartOfChapterOne = novel.GetHappinessAtEndOfChapter(0);
 
             // Assert
-            Assert.AreNotEqual(protagonistIsHappyAtStartOfChapterOne, protagonistIsHappyAtEndOfChapterOne);
+            Assert.AreEqual("happy", protagonistIsHappyAtEndOfChapterOne);
+            Assert.AreEqual("sad", protagonistIsHappyAtStartOfChapterOne);
         }
 
         [Test]
-        public void Protagonist_changes_state_during_chapter_two()
+        public void Protagonist_goes_from_happy_to_sad_during_chapter_two()
         {
             // Arrange
             var novel = new StuckOnATrain();
-            bool protagonistIsHappyAtStartOfChapterOne = novel.GetProtagonistAtEndOfChapter(1).State;
 
             // Act
-            bool protagonistIsHappyAtEndOfChapterOne = novel.GetProtagonistAtEndOfChapter(2).State;
+            string protagonistIsHappyAtEndOfChapterTwo = novel.GetHappinessAtEndOfChapter(2);
+            string protagonistIsHappyAtStartOfChapterTwo = novel.GetHappinessAtEndOfChapter(1);
 
             // Assert
-            Assert.AreNotEqual(protagonistIsHappyAtStartOfChapterOne, protagonistIsHappyAtEndOfChapterOne);
+            Assert.AreEqual("sad", protagonistIsHappyAtEndOfChapterTwo);
+            Assert.AreEqual("happy", protagonistIsHappyAtStartOfChapterTwo);
         }
 
         [Test]
@@ -126,7 +128,7 @@ namespace TestDrivenNovel
             Chapter chapter1 = novel.GetChapter(1);
 
             // Assert
-            Assert.AreEqual("Aloysius cannot get off the train! The doors will not open.", chapter1.GetEvent(1).Description);
+            Assert.AreEqual("Aloysius is on the run from a terrible demon!", chapter1.GetEvent(1).Description);
         }
 
         [Test]
@@ -141,6 +143,16 @@ namespace TestDrivenNovel
 
         [Test]
         public void Chapter1_has_one_event()
+        {
+            // Arrange & Act
+            var novel = new StuckOnATrain();
+
+            // Assert
+            Assert.AreEqual(1, novel.GetChapter(1).NumEvents);
+        }
+
+        [Test]
+        public void InChapter2AloysiusWillFallFoulOfAVillian()
         {
             // Arrange & Act
             var novel = new StuckOnATrain();

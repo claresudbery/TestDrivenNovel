@@ -11,7 +11,7 @@
 
         Character GetProtagonist();
 
-        string GetHappiness(int chapterNum);
+        string GetHappinessAtEndOfChapter(int chapterNum);
 
         Chapter GetChapter(int chapterNumber);
     }

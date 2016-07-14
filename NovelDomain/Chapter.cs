@@ -11,13 +11,14 @@ namespace NovelDomain
 
         public NovelEvent GetEvent(int eventNumber)
         {
-            var novelEvent = new NovelEvent();
-            novelEvent.IsCrisis = true;
-            novelEvent.Description = "Aloysius cannot get off the train! The doors will not open.";
-            novelEvent.StartLocation = "not on the train";
-            novelEvent.FinalLocation = "on the train";
-            novelEvent.Character = new Character();
-            novelEvent.Character.Name = "Aloysius";
+            var novelEvent = new NovelEvent
+            {
+                IsCrisis = true,
+                Description = "Aloysius is on the run from a terrible demon!",
+                StartLocation = "not on the train",
+                FinalLocation = "on the train",
+                Character = new Character {Name = "Aloysius"}
+            };
             return novelEvent;
         }
 
