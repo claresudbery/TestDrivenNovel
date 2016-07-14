@@ -152,13 +152,16 @@ namespace TestDrivenNovel
         }
 
         [Test]
-        public void InChapter2AloysiusWillFallFoulOfAVillian()
+        public void InChapter1TheTurningPointIsThatAloysiusFindsATrainToEscapeOnto()
         {
-            // Arrange & Act
+            // Arrange
             var novel = new StuckOnATrain();
 
+            // Act
+            Chapter chapter1 = novel.GetChapter(2);
+
             // Assert
-            Assert.AreEqual(1, novel.GetChapter(1).NumEvents);
+            Assert.AreEqual("Aloysius finds a train to escape onto.", chapter1.GetEvent(1).TurningPoint);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace NovelDomain
                 Description = "Aloysius is on the run from a terrible demon!",
                 StartLocation = "not on the train",
                 FinalLocation = "on the train",
+                TurningPoint = "Aloysius finds a train to escape onto.",
                 Character = new Character {Name = "Aloysius"}
             };
             return novelEvent;

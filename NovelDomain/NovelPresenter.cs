@@ -52,6 +52,21 @@ namespace NovelDomain
                 Console.WriteLine("The {0} event is that {1}", 
                     GetNumberDescriptor(eventNum), 
                     novelEvent.Description);
+
+                if (novelEvent.TurningPoint != null)
+                {
+                    if (novelEvent.TurningPoint != novelEvent.Description)
+                    {
+                        Console.WriteLine("The {0} event is a turning point.",
+                            GetNumberDescriptor(eventNum));
+                    }
+                    else
+                    {
+                        Console.WriteLine("The {0} event is a turning point: {1}",
+                            GetNumberDescriptor(eventNum),
+                            novelEvent.TurningPoint);
+                    }
+                }
             }
         }
 
