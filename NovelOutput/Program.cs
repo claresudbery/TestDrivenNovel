@@ -19,11 +19,13 @@ namespace NovelOutput
                 novel.ShowText();
                 Console.WriteLine("Press enter to end.");
                 Console.ReadLine();
+                Console.WriteLine("OK, then, if you really must. Goodbye [sob].");
+                Thread.Sleep(System.TimeSpan.FromSeconds(10));
             }
             catch (Exception)
             {
-                Console.WriteLine("OK, then, if you really must. Goodbye [sob].");
-                Thread.Sleep(System.TimeSpan.FromSeconds(2));
+                Console.WriteLine("Oopsidaisy! I done a boo boo.");
+                Thread.Sleep(System.TimeSpan.FromSeconds(10));
             }
         }
     }
