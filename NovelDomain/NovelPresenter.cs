@@ -20,6 +20,7 @@ namespace NovelDomain
             for (int chapterNum = 1; chapterNum <= _novelToPresent.NumChapters(); chapterNum++)
             {
                 Console.WriteLine("Chapter " + chapterNum + ":");
+                StartChapter(chapterNum);
                 ShowChapter(chapterNum);
                 EndChapter(chapterNum);
                 Console.WriteLine("");
@@ -34,14 +35,14 @@ namespace NovelDomain
             {
                 var novelEvent = chapter.GetEvent(eventNum);
 
+                Console.WriteLine("The {0} event happens to {1}.",
+                    GetNumberDescriptor(eventNum),
+                    novelEvent.Character.Name);
+
                 if (novelEvent.IsCrisis)
                 {
-                    Console.WriteLine("The {0} event is a crisis.", 
-                        GetNumberDescriptor(eventNum));
+                    Console.WriteLine("This event is a crisis.");
                 }
-
-                Console.WriteLine("This event happens to {0}.",
-                    novelEvent.Character.Name);
 
                 Console.WriteLine("This event starts {0}.",
                     novelEvent.StartLocation);
@@ -55,7 +56,7 @@ namespace NovelDomain
 
                 if (novelEvent.TurningPoint != null)
                 {
-                    if (novelEvent.TurningPoint != novelEvent.Description)
+                    if (novelEvent.TurningPoint == novelEvent.Description)
                     {
                         Console.WriteLine("The {0} event is a turning point.",
                             GetNumberDescriptor(eventNum));
@@ -87,6 +88,17 @@ namespace NovelDomain
             };
 
             return descriptorDictionary.ContainsKey(number) ? descriptorDictionary[number] : "nth";
+        }
+
+        private void StartChapter(int chapterNum)
+        {
+            var lines = new List<string>();
+
+            lines.Add(string.Format("At the start of this chapter, {0} is {1}.",
+                _novelToPresent.GetProtagonist().Name,
+                _novelToPresent.GetHappinessAtEndOfChapter(chapterNum-1)));
+
+            WriteLines(lines);
         }
 
         private void EndChapter(int chapterNum)

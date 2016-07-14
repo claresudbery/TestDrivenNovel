@@ -132,13 +132,13 @@ namespace TestDrivenNovel
         }
 
         [Test]
-        public void Novel_has_one_chapter()
+        public void Novel_has_two_chapters()
         {
             // Arrange & Act
             var novel = new StuckOnATrain();
 
             // Assert
-            Assert.AreEqual(1, novel.NumChapters());
+            Assert.AreEqual(2, novel.NumChapters());
         }
 
         [Test]
@@ -152,13 +152,26 @@ namespace TestDrivenNovel
         }
 
         [Test]
+        public void InChapter2AloysiusWillFallFoulOfAVillian()
+        {
+            // Arrange
+            var novel = new StuckOnATrain();
+
+            // Act
+            Chapter chapter2 = novel.GetChapter(2);
+
+            // Assert
+            Assert.AreEqual("Aloysius falls foul of a wicked villian!", chapter2.GetTurningPoint());
+        }
+
+        [Test]
         public void InChapter1TheTurningPointIsThatAloysiusFindsATrainToEscapeOnto()
         {
             // Arrange
             var novel = new StuckOnATrain();
 
             // Act
-            Chapter chapter1 = novel.GetChapter(2);
+            Chapter chapter1 = novel.GetChapter(1);
 
             // Assert
             Assert.AreEqual("Aloysius finds a train to escape onto.", chapter1.GetEvent(1).TurningPoint);

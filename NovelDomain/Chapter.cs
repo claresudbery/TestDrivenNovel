@@ -1,28 +1,35 @@
-﻿using System.Linq.Expressions;
+﻿using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace NovelDomain
 {
     public sealed class Chapter
     {
-        public Chapter()
-        {
-            NumEvents = 1;
-        }
+        public List<NovelEvent> NovelEvents { get; set; }
 
         public NovelEvent GetEvent(int eventNumber)
         {
-            var novelEvent = new NovelEvent
-            {
-                IsCrisis = true,
-                Description = "Aloysius is on the run from a terrible demon!",
-                StartLocation = "not on the train",
-                FinalLocation = "on the train",
-                TurningPoint = "Aloysius finds a train to escape onto.",
-                Character = new Character {Name = "Aloysius"}
-            };
-            return novelEvent;
+            return NovelEvents[eventNumber-1];
         }
 
-        public int NumEvents { get; set; }
+        public int NumEvents
+        {
+            get { return NovelEvents.Count; }
+        }
+
+        public string GetTurningPoint()
+        {
+            var turningPoint = "";
+
+            for (int eventNum = 1; eventNum <= NumEvents; eventNum++)
+            {
+                if (GetEvent(eventNum).TurningPoint != null)
+                {
+                    turningPoint = GetEvent(eventNum).TurningPoint;
+                }
+            }
+
+            return turningPoint;
+        }
     }
 }
