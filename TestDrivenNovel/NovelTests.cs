@@ -82,10 +82,11 @@ namespace TestDrivenNovel
             var novel = new StuckOnATrain();
 
             // Act
-            var protagonist = novel.GetProtagonistAtEndOfChapter(0);
+            var chapter = novel.GetChapter(1);
+            var firstEvent = chapter.GetEvent(1);
 
             // Assert
-            Assert.AreNotEqual("on the train", protagonist.Location);
+            Assert.AreNotEqual("on the train", firstEvent.StartLocation);
         }
 
         [Test]
@@ -95,10 +96,11 @@ namespace TestDrivenNovel
             var novel = new StuckOnATrain();
 
             // Act
-            var protagonist = novel.GetProtagonistAtEndOfChapter(1);
+            var chapter = novel.GetChapter(1);
+            var lastEvent = chapter.GetEvent(chapter.NumEvents);
 
             // Assert
-            Assert.AreEqual("on the train", protagonist.Location);
+            Assert.AreEqual("on the train", lastEvent.FinalLocation);
         }
 
         [Test]
@@ -145,24 +147,6 @@ namespace TestDrivenNovel
 
             // Assert
             Assert.AreEqual(1, novel.GetChapter(1).NumEvents);
-        }
-
-        [Test]
-        public void The_location_of_an_event_must_match_its_character_location()
-        {
-            // Arrange
-            var novel = new StuckOnATrain();
-
-            // Act & Assert
-            for (int chapterNum = 1; chapterNum <= novel.NumChapters(); chapterNum++)
-            {
-                var chapter = novel.GetChapter(chapterNum);
-                for (int eventNum = 1; eventNum <= chapter.NumEvents; eventNum++)
-                {
-                    var novelEvent = chapter.GetEvent(eventNum);
-                    Assert.AreEqual(novelEvent.Location, novelEvent.Character.Location);
-                }
-            }
         }
     }
 }

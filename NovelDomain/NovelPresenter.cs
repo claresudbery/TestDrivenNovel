@@ -43,9 +43,11 @@ namespace NovelDomain
                 Console.WriteLine("This event happens to {0}.",
                     novelEvent.Character.Name);
 
-                Console.WriteLine("This event happens when {0} is {1}.",
-                    novelEvent.Character.Name,
-                    novelEvent.Location);
+                Console.WriteLine("This event starts {0}.",
+                    novelEvent.StartLocation);
+
+                Console.WriteLine("This event ends {0}.",
+                    novelEvent.FinalLocation);
 
                 Console.WriteLine("The {0} event is that {1}", 
                     GetNumberDescriptor(eventNum), 
@@ -78,10 +80,6 @@ namespace NovelDomain
 
             lines.Add(string.Format("At the end of this chapter, {0} is {1}.",
                 _novelToPresent.GetProtagonist().Name,
-                _novelToPresent.GetProtagonistAtEndOfChapter(chapterNum).Location));
-
-            lines.Add(string.Format("At the end of this chapter, {0} is {1}.",
-                _novelToPresent.GetProtagonist().Name,
                 _novelToPresent.GetHappiness(chapterNum)));
 
             WriteLines(lines);
@@ -96,10 +94,6 @@ namespace NovelDomain
             lines.Add("This novel has " + _novelToPresent.NumChapters() + " chapters.");
 
             lines.Add("The main character is called " + _novelToPresent.GetProtagonist().Name + ".");
-
-            lines.Add(string.Format("At the start of the book, {0} is {1}.",
-                _novelToPresent.GetProtagonist().Name,
-                _novelToPresent.GetProtagonistAtEndOfChapter(0).Location));
 
             lines.Add(string.Format("At the start of the book, {0} is {1}.",
                 _novelToPresent.GetProtagonist().Name,
