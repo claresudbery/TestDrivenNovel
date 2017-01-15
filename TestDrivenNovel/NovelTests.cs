@@ -119,7 +119,7 @@ namespace TestDrivenNovel
         }
 
         [Test]
-        public void The_initial_crisis_is_that_protagonist_cannot_leave_the_train()
+        public void The_initial_crisis_is_that_protagonist_is_being_chased_by_a_demon()
         {
             // Arrange
             var novel = new StuckOnATrain();
