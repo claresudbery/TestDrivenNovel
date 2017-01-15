@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace TestDrivenNovel
 {
     [TestFixture]  
-    class NovelTests 
+    class StuckOnATrainTests 
     {
         [Test]
         public void Protagonist_goes_from_sad_to_happy_during_chapter_one()
@@ -35,24 +35,6 @@ namespace TestDrivenNovel
             // Assert
             Assert.AreEqual("sad", protagonistEmotionAtEndOfChapterTwo);
             Assert.AreEqual("happy", protagonistEmotionAtStartOfChapterTwo);
-        }
-
-        [Test]
-        public void Protagonist_changes_emotion_during_all_chapters()
-        {
-            // Arrange
-            var novel = new StuckOnATrain();
-
-            for (int chapter = 1; chapter <= novel.NumChapters(); chapter++)
-            {
-                string protagonistEmotionAtEndOfPreviousChapter = novel.GetProtagonistEmotionAtEndOfChapter(chapter - 1);
-
-                // Act
-                string protagonistEmotionAtEndOfChapterUnderTest = novel.GetProtagonistEmotionAtEndOfChapter(chapter);
-
-                // Assert
-                Assert.AreNotEqual(protagonistEmotionAtEndOfPreviousChapter, protagonistEmotionAtEndOfChapterUnderTest);
-            }
         }
 
         [Test]
@@ -104,19 +86,6 @@ namespace TestDrivenNovel
 
             // Assert
             Assert.AreEqual("on the train", lastEvent.FinalLocation);
-        }
-
-        [Test]
-        public void Novel_starts_with_a_crisis()
-        {
-            // Arrange
-            var novel = new StuckOnATrain();
-
-            // Act
-            Chapter chapter1 = novel.GetChapter(1);
-
-            // Assert
-            Assert.AreEqual(true, chapter1.GetEvent(1).IsCrisis);
         }
 
         [Test]
@@ -189,36 +158,6 @@ namespace TestDrivenNovel
 
             // Assert
             Assert.AreEqual("Aloysius falls foul of a wicked villian!", chapter2.GetEvent(1).TurningPoint);
-        }
-
-        [Test]
-        public void AllChaptersHaveTurningPoints()
-        {
-            // Arrange
-            var novel = new StuckOnATrain();
-
-            for (int chapter = 1; chapter <= novel.NumChapters(); chapter++)
-            {
-                var turningPoint = novel.GetChapter(chapter).GetTurningPoint();
-
-                // Assert
-                Assert.IsNotNull(turningPoint);
-            }
-        }
-
-        [Test]
-        public void AllChaptersHaveOnlyOneTurningPoint()
-        {
-            // Arrange
-            var novel = new StuckOnATrain();
-
-            for (int chapter = 1; chapter <= novel.NumChapters(); chapter++)
-            {
-                List<string> turningPoints = novel.GetChapter(chapter).GetAllTurningPoints();
-
-                // Assert
-                Assert.AreEqual(1, turningPoints.Count);
-            }
         }
     }
 }
