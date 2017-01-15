@@ -19,7 +19,7 @@ namespace NovelDomain
 
         public string GetTurningPoint()
         {
-            var turningPoint = "";
+            string turningPoint = null;
 
             for (int eventNum = 1; eventNum <= NumEvents; eventNum++)
             {
@@ -30,6 +30,21 @@ namespace NovelDomain
             }
 
             return turningPoint;
+        }
+
+        public List<string> GetAllTurningPoints()
+        {
+            List<string> turningPoints = new List<string>();
+
+            for (int eventNum = 1; eventNum <= NumEvents; eventNum++)
+            {
+                if (GetEvent(eventNum).TurningPoint != null)
+                {
+                    turningPoints.Add(GetEvent(eventNum).TurningPoint);
+                }
+            }
+
+            return turningPoints;
         }
     }
 }

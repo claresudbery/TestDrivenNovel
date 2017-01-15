@@ -1,4 +1,5 @@
-﻿using NovelDomain;
+﻿using System.Collections.Generic;
+using NovelDomain;
 using NUnit.Framework;
 
 namespace TestDrivenNovel
@@ -175,6 +176,49 @@ namespace TestDrivenNovel
 
             // Assert
             Assert.AreEqual("Aloysius finds a train to escape onto.", chapter1.GetEvent(1).TurningPoint);
+        }
+
+        [Test]
+        public void InChapter2TheTurningPointIsThatAloysiusFallsFoulOfAVillian()
+        {
+            // Arrange
+            var novel = new StuckOnATrain();
+
+            // Act
+            Chapter chapter2 = novel.GetChapter(2);
+
+            // Assert
+            Assert.AreEqual("Aloysius falls foul of a wicked villian!", chapter2.GetEvent(1).TurningPoint);
+        }
+
+        [Test]
+        public void AllChaptersHaveTurningPoints()
+        {
+            // Arrange
+            var novel = new StuckOnATrain();
+
+            for (int chapter = 1; chapter <= novel.NumChapters(); chapter++)
+            {
+                var turningPoint = novel.GetChapter(chapter).GetTurningPoint();
+
+                // Assert
+                Assert.IsNotNull(turningPoint);
+            }
+        }
+
+        [Test]
+        public void AllChaptersHaveOnlyOneTurningPoint()
+        {
+            // Arrange
+            var novel = new StuckOnATrain();
+
+            for (int chapter = 1; chapter <= novel.NumChapters(); chapter++)
+            {
+                List<string> turningPoints = novel.GetChapter(chapter).GetAllTurningPoints();
+
+                // Assert
+                Assert.AreEqual(1, turningPoints.Count);
+            }
         }
     }
 }
