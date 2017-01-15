@@ -2,7 +2,7 @@
 {
     public sealed class Character
     {
-        public bool State { get; set; }
+        public string Emotion { get; set; }
         public string Name { get; set; }
     }
 }

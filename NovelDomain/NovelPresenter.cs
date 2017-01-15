@@ -96,7 +96,7 @@ namespace NovelDomain
 
             lines.Add(string.Format("At the start of this chapter, {0} is {1}.",
                 _novelToPresent.GetProtagonist().Name,
-                _novelToPresent.GetHappinessAtEndOfChapter(chapterNum-1)));
+                _novelToPresent.GetProtagonistEmotionAtEndOfChapter(chapterNum-1)));
 
             WriteLines(lines);
         }
@@ -107,7 +107,7 @@ namespace NovelDomain
 
             lines.Add(string.Format("At the end of this chapter, {0} is {1}.",
                 _novelToPresent.GetProtagonist().Name,
-                _novelToPresent.GetHappinessAtEndOfChapter(chapterNum)));
+                _novelToPresent.GetProtagonistEmotionAtEndOfChapter(chapterNum)));
 
             WriteLines(lines);
         }
@@ -124,7 +124,7 @@ namespace NovelDomain
 
             lines.Add(string.Format("At the start of the book, {0} is {1}.",
                 _novelToPresent.GetProtagonist().Name,
-                _novelToPresent.GetHappinessAtEndOfChapter(0)));
+                _novelToPresent.GetProtagonistEmotionAtEndOfChapter(0)));
 
             WriteLines(lines);
         }

@@ -56,7 +56,8 @@ namespace NovelDomain
 
         public Character GetProtagonistAtEndOfChapter(int chapterNumber)
         {
-            _protagonist.State = Convert.ToBoolean(chapterNumber % 2);
+            string[] emotions = new[] {"sad", "happy"};
+            _protagonist.Emotion = emotions[chapterNumber % 2];
 
             return _protagonist;
         }
@@ -72,9 +73,9 @@ namespace NovelDomain
             return _chapters.Count;
         }
 
-        public string GetHappinessAtEndOfChapter(int chapterNum)
+        public string GetProtagonistEmotionAtEndOfChapter(int chapterNum)
         {
-            return GetProtagonistAtEndOfChapter(chapterNum).State ? "happy" : "sad";
+            return GetProtagonistAtEndOfChapter(chapterNum).Emotion;
         }
 
         public Character GetProtagonist()

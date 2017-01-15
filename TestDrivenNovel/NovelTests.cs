@@ -13,12 +13,12 @@ namespace TestDrivenNovel
             var novel = new StuckOnATrain();
 
             // Act
-            string protagonistIsHappyAtEndOfChapterOne = novel.GetHappinessAtEndOfChapter(1);
-            string protagonistIsHappyAtStartOfChapterOne = novel.GetHappinessAtEndOfChapter(0);
+            string protagonistEmotionAtEndOfChapterOne = novel.GetProtagonistEmotionAtEndOfChapter(1);
+            string protagonistEmotionAtStartOfChapterOne = novel.GetProtagonistEmotionAtEndOfChapter(0);
 
             // Assert
-            Assert.AreEqual("happy", protagonistIsHappyAtEndOfChapterOne);
-            Assert.AreEqual("sad", protagonistIsHappyAtStartOfChapterOne);
+            Assert.AreEqual("happy", protagonistEmotionAtEndOfChapterOne);
+            Assert.AreEqual("sad", protagonistEmotionAtStartOfChapterOne);
         }
 
         [Test]
@@ -28,29 +28,29 @@ namespace TestDrivenNovel
             var novel = new StuckOnATrain();
 
             // Act
-            string protagonistIsHappyAtEndOfChapterTwo = novel.GetHappinessAtEndOfChapter(2);
-            string protagonistIsHappyAtStartOfChapterTwo = novel.GetHappinessAtEndOfChapter(1);
+            string protagonistEmotionAtEndOfChapterTwo = novel.GetProtagonistEmotionAtEndOfChapter(2);
+            string protagonistEmotionAtStartOfChapterTwo = novel.GetProtagonistEmotionAtEndOfChapter(1);
 
             // Assert
-            Assert.AreEqual("sad", protagonistIsHappyAtEndOfChapterTwo);
-            Assert.AreEqual("happy", protagonistIsHappyAtStartOfChapterTwo);
+            Assert.AreEqual("sad", protagonistEmotionAtEndOfChapterTwo);
+            Assert.AreEqual("happy", protagonistEmotionAtStartOfChapterTwo);
         }
 
         [Test]
-        public void Protagonist_changes_state_during_all_chapters()
+        public void Protagonist_changes_emotion_during_all_chapters()
         {
             // Arrange
             var novel = new StuckOnATrain();
 
             for (int chapter = 1; chapter <= novel.NumChapters(); chapter++)
             {
-                bool protagonistIsHappyAtStartOfPreviousChapter = novel.GetProtagonistAtEndOfChapter(chapter - 1).State;
+                string protagonistEmotionAtEndOfPreviousChapter = novel.GetProtagonistEmotionAtEndOfChapter(chapter - 1);
 
                 // Act
-                bool protagonistIsHappyAtEndOfChapterUnderTest = novel.GetProtagonistAtEndOfChapter(chapter).State;
+                string protagonistEmotionAtEndOfChapterUnderTest = novel.GetProtagonistEmotionAtEndOfChapter(chapter);
 
                 // Assert
-                Assert.AreNotEqual(protagonistIsHappyAtStartOfPreviousChapter, protagonistIsHappyAtEndOfChapterUnderTest);
+                Assert.AreNotEqual(protagonistEmotionAtEndOfPreviousChapter, protagonistEmotionAtEndOfChapterUnderTest);
             }
         }
 
