@@ -45,8 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenericNovelTests.cs" />
-    <Compile Include="StuckOnATrainTests.cs" />
+    <Compile Include="GenericNovelTests\GenericNovelTests.cs" />
+    <Compile Include="StuckOnATrainTests\ProgressionTests\Chapter1Tests.cs" />
+    <Compile Include="StuckOnATrainTests\ProgressionTests\Chapter2Tests.cs" />
+    <Compile Include="StuckOnATrainTests\NameTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,7 @@ namespace NovelDomain
                             StartLocation = "not on the train",
                             FinalLocation = "on the train",
                             TurningPoint = "Aloysius finds a train to escape onto.",
-                            Character = new Character {Name = "Aloysius"}
+                            Character = _protagonist
                         }
                     }
                 },
@@ -45,7 +45,7 @@ namespace NovelDomain
                             StartLocation = "on the train",
                             FinalLocation = "on the train",
                             TurningPoint = "Aloysius falls foul of a wicked villian!",
-                            Character = new Character {Name = "Aloysius"}
+                            Character = _protagonist
                         }
                     }
                 }
