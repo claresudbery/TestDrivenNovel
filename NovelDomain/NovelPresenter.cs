@@ -33,40 +33,30 @@ namespace NovelDomain
 
             for (int eventNum = 1; eventNum <= chapter.NumEvents; eventNum++)
             {
-                var novelEvent = chapter.GetEvent(eventNum);
+                ShowEvent(chapter.GetEvent(eventNum), eventNum);
+            }
+        }
 
-                Console.WriteLine("The {0} event happens to {1}.",
-                    GetNumberDescriptor(eventNum),
-                    novelEvent.Character.Name);
-
-                if (novelEvent.IsCrisis)
+        private void ShowEvent(NovelEvent novelEvent, int eventNum)
+        {
+            Console.WriteLine("{0} event: ", GetNumberDescriptor(eventNum));
+            Console.WriteLine("It happens to {0}.", novelEvent.Character.Name);
+            if (novelEvent.IsCrisis)
+            {
+                Console.WriteLine("It is a crisis.");
+            }
+            Console.WriteLine("It starts {0}.", novelEvent.StartLocation);
+            Console.WriteLine("It ends {0}.", novelEvent.FinalLocation);
+            Console.WriteLine(novelEvent.Description);
+            if (novelEvent.TurningPoint != null)
+            {
+                if (novelEvent.TurningPoint == novelEvent.Description)
                 {
-                    Console.WriteLine("This event is a crisis.");
+                    Console.WriteLine("It is a turning point.");
                 }
-
-                Console.WriteLine("This event starts {0}.",
-                    novelEvent.StartLocation);
-
-                Console.WriteLine("This event ends {0}.",
-                    novelEvent.FinalLocation);
-
-                Console.WriteLine("The {0} event is that {1}", 
-                    GetNumberDescriptor(eventNum), 
-                    novelEvent.Description);
-
-                if (novelEvent.TurningPoint != null)
+                else
                 {
-                    if (novelEvent.TurningPoint == novelEvent.Description)
-                    {
-                        Console.WriteLine("The {0} event is a turning point.",
-                            GetNumberDescriptor(eventNum));
-                    }
-                    else
-                    {
-                        Console.WriteLine("The {0} event is a turning point: {1}",
-                            GetNumberDescriptor(eventNum),
-                            novelEvent.TurningPoint);
-                    }
+                    Console.WriteLine("It is a turning point: {0}", novelEvent.TurningPoint);
                 }
             }
         }
@@ -75,16 +65,16 @@ namespace NovelDomain
         {
             var descriptorDictionary = new Dictionary<int, string>
             {
-                {1, "first"},
-                {2, "second"},
-                {3, "third"},
-                {4, "fourth"},
-                {5, "fifth"},
-                {6, "sixth"},
-                {7, "seventh"},
-                {8, "eighth"},
-                {9, "ninth"},
-                {10, "tenth"},
+                {1, "First"},
+                {2, "Second"},
+                {3, "Third"},
+                {4, "Fourth"},
+                {5, "Fifth"},
+                {6, "Sixth"},
+                {7, "Seventh"},
+                {8, "Eighth"},
+                {9, "Ninth"},
+                {10, "Tenth"},
             };
 
             return descriptorDictionary.ContainsKey(number) ? descriptorDictionary[number] : "nth";

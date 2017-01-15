@@ -20,12 +20,12 @@ namespace NovelOutput
                 Console.WriteLine("Press enter to end.");
                 Console.ReadLine();
                 Console.WriteLine("OK, then, if you really must. Goodbye [sob].");
-                Thread.Sleep(System.TimeSpan.FromSeconds(10));
+                Thread.Sleep(System.TimeSpan.FromSeconds(2));
             }
             catch (Exception)
             {
                 Console.WriteLine("Oopsidaisy! I done a boo boo.");
-                Thread.Sleep(System.TimeSpan.FromSeconds(10));
+                Thread.Sleep(System.TimeSpan.FromSeconds(5));
             }
         }
     }
