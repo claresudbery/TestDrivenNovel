@@ -17,6 +17,7 @@ namespace NovelOutput
             try
             {
                 novel.ShowText();
+                Console.WriteLine("");
                 Console.WriteLine("Press enter to end.");
                 Console.ReadLine();
                 Console.WriteLine("OK, then, if you really must. Goodbye [sob].");

@@ -16,14 +16,17 @@ namespace NovelDomain
         {
             Console.WriteLine("");
             ShowIntro();
-            Console.WriteLine("");
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("-------------------------------------");
             for (int chapterNum = 1; chapterNum <= _novelToPresent.NumChapters(); chapterNum++)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Chapter " + chapterNum + ":");
                 StartChapter(chapterNum);
                 ShowChapter(chapterNum);
                 EndChapter(chapterNum);
-                Console.WriteLine("");
+                Console.WriteLine("-------------------------------------");
+                Console.WriteLine("-------------------------------------");
             }
         }
 
@@ -35,10 +38,13 @@ namespace NovelDomain
             {
                 ShowEvent(chapter.GetEvent(eventNum), eventNum);
             }
+
+            Console.WriteLine("-------------------------------------");
         }
 
         private void ShowEvent(NovelEvent novelEvent, int eventNum)
         {
+            Console.WriteLine("-------------------------------------");
             Console.WriteLine("{0} event: ", GetNumberDescriptor(eventNum));
             Console.WriteLine("It happens to {0}.", novelEvent.Character.Name);
             if (novelEvent.IsCrisis)
@@ -56,7 +62,7 @@ namespace NovelDomain
                 }
                 else
                 {
-                    Console.WriteLine("It is a turning point: {0}", novelEvent.TurningPoint);
+                    Console.WriteLine("It has a turning point: {0}", novelEvent.TurningPoint);
                 }
             }
         }
