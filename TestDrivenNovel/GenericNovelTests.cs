@@ -40,7 +40,7 @@ namespace TestDrivenNovel
         public static void Novel_starts_with_a_crisis(INovel novel)
         {
             // Act
-            Chapter chapter1 = novel.GetChapter(1);
+            IChapter chapter1 = novel.GetChapter(1);
 
             // Assert
             Assert.AreEqual(true, chapter1.GetEvent(1).IsCrisis);

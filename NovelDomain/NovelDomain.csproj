@@ -43,9 +43,13 @@
   <ItemGroup>
     <Compile Include="ActualNovels\NovelNames.cs" />
     <Compile Include="ActualNovels\NullNovel.cs" />
+    <Compile Include="ActualNovels\TheExperienceMaker\ExperienceMakerChap2.cs" />
+    <Compile Include="ActualNovels\TheExperienceMaker\ExperienceMakerChap1.cs" />
     <Compile Include="ActualNovels\TheExperienceMaker\TheExperienceMaker.cs" />
     <Compile Include="Chapter.cs" />
+    <Compile Include="ChapterMaster.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="IChapter.cs" />
     <Compile Include="NovelEvent.cs" />
     <Compile Include="INovel.cs" />
     <Compile Include="NovelPresenter.cs" />

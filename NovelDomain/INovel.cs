@@ -12,6 +12,6 @@
 
         string GetProtagonistEmotionAtEndOfChapter(int chapterNum);
 
-        Chapter GetChapter(int chapterNumber);
+        IChapter GetChapter(int chapterNumber);
     }
 }

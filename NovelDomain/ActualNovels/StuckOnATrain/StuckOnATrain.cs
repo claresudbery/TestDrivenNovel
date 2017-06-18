@@ -38,7 +38,7 @@ namespace NovelDomain.ActualNovels.StuckOnATrain
             return _protagonist;
         }
 
-        public Chapter GetChapter(int chapterNumber)
+        public IChapter GetChapter(int chapterNumber)
         {
             return _chapters[chapterNumber - 1];
         }

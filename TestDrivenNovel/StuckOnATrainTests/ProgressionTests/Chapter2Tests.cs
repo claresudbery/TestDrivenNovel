@@ -29,7 +29,7 @@ namespace TestDrivenNovel.StuckOnATrainTests.ProgressionTests
             var novel = new StuckOnATrain();
 
             // Act
-            Chapter chapter2 = novel.GetChapter(2);
+            IChapter chapter2 = novel.GetChapter(2);
 
             // Assert
             Assert.AreEqual("Aloysius falls foul of a wicked villian!", chapter2.GetEvent(1).TurningPoint);

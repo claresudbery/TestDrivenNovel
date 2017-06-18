@@ -29,7 +29,7 @@ namespace TestDrivenNovel.TheExperienceMakerTests.ProgressionTests
             var novel = new TheExperienceMaker();
 
             // Act
-            Chapter chapter1 = novel.GetChapter(1);
+            IChapter chapter1 = novel.GetChapter(1);
 
             // Assert
             Assert.AreEqual("Seren has just murdered somebody savagely!", chapter1.GetEvent(1).Summary);
@@ -42,7 +42,7 @@ namespace TestDrivenNovel.TheExperienceMakerTests.ProgressionTests
             var novel = new TheExperienceMaker();
 
             // Act
-            Chapter chapter1 = novel.GetChapter(1);
+            IChapter chapter1 = novel.GetChapter(1);
 
             // Assert
             Assert.AreEqual("Seren exits from the experience and realises that she is not a murderer.", chapter1.GetEvent(1).TurningPoint);

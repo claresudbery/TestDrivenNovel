@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TheExperienceMakerTests\GenericNovelTests.cs" />
     <Compile Include="TheExperienceMakerTests\NameTests.cs" />
+    <Compile Include="TheExperienceMakerTests\ProgressionTests\Chapter2Tests.cs" />
     <Compile Include="TheExperienceMakerTests\ProgressionTests\Chapter1Tests.cs" />
   </ItemGroup>
   <ItemGroup>

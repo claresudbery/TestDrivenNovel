@@ -57,7 +57,7 @@ namespace TestDrivenNovel.StuckOnATrainTests.ProgressionTests
             var novel = new StuckOnATrain();
 
             // Act
-            Chapter chapter1 = novel.GetChapter(1);
+            IChapter chapter1 = novel.GetChapter(1);
 
             // Assert
             Assert.AreEqual("Aloysius is on the run from a terrible demon!", chapter1.GetEvent(1).Summary);
@@ -70,7 +70,7 @@ namespace TestDrivenNovel.StuckOnATrainTests.ProgressionTests
             var novel = new StuckOnATrain();
 
             // Act
-            Chapter chapter1 = novel.GetChapter(1);
+            IChapter chapter1 = novel.GetChapter(1);
 
             // Assert
             Assert.AreEqual("Aloysius finds a train to escape onto.", chapter1.GetEvent(1).TurningPoint);

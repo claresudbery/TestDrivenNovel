@@ -31,7 +31,7 @@ namespace NovelDomain.ActualNovels
             return new Character();
         }
 
-        public Chapter GetChapter(int chapterNumber)
+        public IChapter GetChapter(int chapterNumber)
         {
             return new Chapter();
         }

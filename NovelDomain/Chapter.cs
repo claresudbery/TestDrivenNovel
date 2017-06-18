@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace NovelDomain
 {
-    public sealed class Chapter
+    public sealed class Chapter : IChapter
     {
         public List<NovelEvent> NovelEvents { get; set; }
         public string StartEmotion { get; set; }
@@ -21,32 +21,12 @@ namespace NovelDomain
 
         public string GetTurningPoint()
         {
-            string turningPoint = null;
-
-            for (int eventNum = 1; eventNum <= NumEvents; eventNum++)
-            {
-                if (GetEvent(eventNum).TurningPoint != null)
-                {
-                    turningPoint = GetEvent(eventNum).TurningPoint;
-                }
-            }
-
-            return turningPoint;
+            return ChapterMaster.GetTurningPoint(this);
         }
 
         public List<string> GetAllTurningPoints()
         {
-            List<string> turningPoints = new List<string>();
-
-            for (int eventNum = 1; eventNum <= NumEvents; eventNum++)
-            {
-                if (GetEvent(eventNum).TurningPoint != null)
-                {
-                    turningPoints.Add(GetEvent(eventNum).TurningPoint);
-                }
-            }
-
-            return turningPoints;
+            return ChapterMaster.GetAllTurningPoints(this);
         }
     }
 }
