@@ -48,6 +48,18 @@ namespace NovelDomain.ActualNovels.TheExperienceMaker
                         Character = _protagonist,
                         StartLocation = "in court",
                         FinalLocation = "in court"
+                    },
+                    new NovelEvent
+                    {
+                        IsCrisis = false,
+                        Summary = "After going through the murder experience, Seren makes eye contact with the murderer.",
+                        Description = new List<string>
+                        {
+                            "It feels as though he is singling her out. As though some kind of connection is being formed."
+                        },
+                        Character = _protagonist,
+                        StartLocation = "in court",
+                        FinalLocation = "in court"
                     }
                 };
             }

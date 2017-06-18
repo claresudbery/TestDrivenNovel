@@ -19,7 +19,7 @@ namespace NovelDomain.ActualNovels.TheExperienceMaker
 
         public string FinalEmotion
         {
-            get { return "scared"; }
+            get { return "terrified"; }
             set { throw new System.NotImplementedException(); }
         }
 
@@ -32,11 +32,13 @@ namespace NovelDomain.ActualNovels.TheExperienceMaker
                     new NovelEvent
                     {
                         IsCrisis = false,
-                        Summary = "",
+                        Summary = "The protagonist is lured into feeling a rollercoaster experience that turns out to belong to the murderer.",
                         Description = new List<string>
                         {
+                            "The thing about experiences is that you cannot escape them.",
+                            "Because they are totally immersive, you effectively accept a waiver at the start of each one."
                         },
-                        TurningPoint = "",
+                        TurningPoint = "It is very exciting and exhilarating, but at the end he looks into a mirror and contemplates his next kill.",
                         Character = _protagonist,
                         StartLocation = "",
                         FinalLocation = ""

@@ -19,11 +19,11 @@ namespace TestDrivenNovel.TheExperienceMakerTests.ProgressionTests
 
             // Assert
             Assert.AreEqual("relieved", protagonistEmotionAtStartOfChapterTwo);
-            Assert.AreEqual("scared", protagonistEmotionAtEndOfChapterTwo);
+            Assert.AreEqual("terrified", protagonistEmotionAtEndOfChapterTwo);
         }
 
         [Test]
-        public void InChapter2TheTurningPointIs()
+        public void InChapter2TheMainEventIsThatProtagonistFeelsARollercoasterExperienceFromMurdererPOV()
         {
             // Arrange
             var novel = new TheExperienceMaker();
@@ -32,7 +32,20 @@ namespace TestDrivenNovel.TheExperienceMakerTests.ProgressionTests
             IChapter chapter2 = novel.GetChapter(2);
 
             // Assert
-            Assert.AreEqual("", chapter2.GetEvent(1).TurningPoint);
+            Assert.AreEqual("The protagonist is lured into feeling a rollercoaster experience that turns out to belong to the murderer.", chapter2.GetEvent(1).Summary);
+        }
+
+        [Test]
+        public void InChapter2TheTurningPointIsWhenSerenRealisesThisExperienceBelongsToTheMurderer()
+        {
+            // Arrange
+            var novel = new TheExperienceMaker();
+
+            // Act
+            IChapter chapter2 = novel.GetChapter(2);
+
+            // Assert
+            Assert.AreEqual("It is very exciting and exhilarating, but at the end he looks into a mirror and contemplates his next kill.", chapter2.GetEvent(1).TurningPoint);
         }
     }
 }

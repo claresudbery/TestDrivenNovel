@@ -61,5 +61,18 @@ namespace TestDrivenNovel.TheExperienceMakerTests.ProgressionTests
             // Assert
             Assert.AreNotEqual("on the train", firstEvent.StartLocation);
         }
+
+        [Test]
+        public void After_the_experience_protagonist_makes_eye_contact_with_murderer()
+        {
+            // Arrange
+            var novel = new TheExperienceMaker();
+
+            // Act
+            IChapter chapter1 = novel.GetChapter(1);
+
+            // Assert
+            Assert.AreEqual("After going through the murder experience, Seren makes eye contact with the murderer.", chapter1.GetEvent(2).Summary);
+        }
     }
 }
