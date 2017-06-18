@@ -11,19 +11,19 @@ namespace NovelDomain.ActualNovels
 
         public string Name { get; set; }
 
-        public Character GetProtagonistAtEndOfChapter(int chapterNumber)
-        {
-            return new Character();
-        }
-
         public int NumChapters()
         {
             return 0;
         }
 
+        public string GetProtagonistEmotionAtStartOfChapter(int chapterNum)
+        {
+            return GetChapter(chapterNum).StartEmotion;
+        }
+
         public string GetProtagonistEmotionAtEndOfChapter(int chapterNum)
         {
-            return GetProtagonistAtEndOfChapter(chapterNum).Emotion;
+            return GetChapter(chapterNum).FinalEmotion;
         }
 
         public Character GetProtagonist()

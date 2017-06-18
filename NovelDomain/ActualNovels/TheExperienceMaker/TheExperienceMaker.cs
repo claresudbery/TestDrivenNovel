@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace NovelDomain.ActualNovels.StuckOnATrain
+namespace NovelDomain.ActualNovels.TheExperienceMaker
 {
-    public sealed class StuckOnATrain : INovel
+    public sealed class TheExperienceMaker : INovel
     {
         private Character _protagonist;
         private List<Chapter> _chapters;
 
-        public StuckOnATrain()
+        public TheExperienceMaker()
         {
-            Name = NovelNames.StuckOnATrain;
+            Name = NovelNames.TheExperienceMaker;
             InitialiseProtagonist();
             InitialiseChapters();
         }
@@ -23,7 +23,9 @@ namespace NovelDomain.ActualNovels.StuckOnATrain
 
         public string GetProtagonistEmotionAtStartOfChapter(int chapterNum)
         {
-            return GetChapter(chapterNum).StartEmotion;
+            return (chapterNum <= _chapters.Count)
+                ? GetChapter(chapterNum).StartEmotion
+                : GetChapter(chapterNum - 1).FinalEmotion;
         }
 
         public string GetProtagonistEmotionAtEndOfChapter(int chapterNum)
@@ -46,7 +48,7 @@ namespace NovelDomain.ActualNovels.StuckOnATrain
         private void InitialiseProtagonist()
         {
             _protagonist = new Character();
-            _protagonist.Name = "Aloysius";
+            _protagonist.Name = "Seren";
         }
 
         private void InitialiseChapters()
@@ -55,33 +57,15 @@ namespace NovelDomain.ActualNovels.StuckOnATrain
             {
                 new Chapter
                 {
-                    StartEmotion = "sad",
-                    FinalEmotion = "happy",
+                    StartEmotion = "Angry",
+                    FinalEmotion = "Relieved",
                     NovelEvents = new List<NovelEvent>
                     {
                         new NovelEvent
                         {
                             IsCrisis = true,
-                            Summary = "Aloysius is on the run from a terrible demon!",
-                            StartLocation = "not on the train",
-                            FinalLocation = "on the train",
-                            TurningPoint = "Aloysius finds a train to escape onto.",
-                            Character = _protagonist
-                        }
-                    }
-                },
-                new Chapter
-                {
-                    StartEmotion = "happy",
-                    FinalEmotion = "sad",
-                    NovelEvents = new List<NovelEvent>
-                    {
-                        new NovelEvent
-                        {
-                            Summary = "Aloysius falls foul of a wicked villian!",
-                            StartLocation = "on the train",
-                            FinalLocation = "on the train",
-                            TurningPoint = "Aloysius falls foul of a wicked villian!",
+                            Summary = "Seren has just murdered somebody savagely!",
+                            TurningPoint = "Seren exits from the experience and realises that she is not a murderer.",
                             Character = _protagonist
                         }
                     }

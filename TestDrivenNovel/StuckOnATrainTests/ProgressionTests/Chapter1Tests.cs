@@ -18,8 +18,8 @@ namespace TestDrivenNovel.StuckOnATrainTests.ProgressionTests
             string protagonistEmotionAtStartOfChapterOne = novel.GetProtagonistEmotionAtEndOfChapter(0);
 
             // Assert
-            Assert.AreEqual("happy", protagonistEmotionAtEndOfChapterOne);
             Assert.AreEqual("sad", protagonistEmotionAtStartOfChapterOne);
+            Assert.AreEqual("happy", protagonistEmotionAtEndOfChapterOne);
         }
 
         [Test]
@@ -60,7 +60,7 @@ namespace TestDrivenNovel.StuckOnATrainTests.ProgressionTests
             Chapter chapter1 = novel.GetChapter(1);
 
             // Assert
-            Assert.AreEqual("Aloysius is on the run from a terrible demon!", chapter1.GetEvent(1).Description);
+            Assert.AreEqual("Aloysius is on the run from a terrible demon!", chapter1.GetEvent(1).Summary);
         }
 
         [Test]

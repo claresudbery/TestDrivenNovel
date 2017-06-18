@@ -1,18 +1,23 @@
 ﻿using System.Collections.Generic;
 using NovelDomain;
-using NovelDomain.ActualNovels.StuckOnATrain;
+using NovelDomain.ActualNovels.TheExperienceMaker;
 using NUnit.Framework;
 
-namespace TestDrivenNovel.GenericNovelTests
+namespace TestDrivenNovel.TheExperienceMakerTests
 {
     [TestFixture]  
     class GenericNovelTests 
     {
+        private INovel CreateNovel()
+        {
+            return new TheExperienceMaker();
+        }
+
         [Test]
         public void Protagonist_changes_emotion_during_all_chapters()
         {
             // Arrange
-            var novel = new StuckOnATrain();
+            var novel = CreateNovel();
 
             for (int chapter = 1; chapter <= novel.NumChapters(); chapter++)
             {
@@ -27,10 +32,28 @@ namespace TestDrivenNovel.GenericNovelTests
         }
 
         [Test]
+        public void Protagonist_emotion_at_end_of_each_chapter_is_same_as_emotion_at_start_of_next_chapter()
+        {
+            // Arrange
+            var novel = CreateNovel();
+
+            for (int chapter = 1; chapter <= novel.NumChapters(); chapter++)
+            {
+                string protagonistEmotionAtEndOfPreviousChapter = novel.GetProtagonistEmotionAtEndOfChapter(chapter - 1);
+
+                // Act
+                string protagonistEmotionAtStartOfChapterUnderTest = novel.GetProtagonistEmotionAtStartOfChapter(chapter);
+
+                // Assert
+                Assert.AreEqual(protagonistEmotionAtEndOfPreviousChapter, protagonistEmotionAtStartOfChapterUnderTest);
+            }
+        }
+
+        [Test]
         public void Novel_starts_with_a_crisis()
         {
             // Arrange
-            var novel = new StuckOnATrain();
+            var novel = CreateNovel();
 
             // Act
             Chapter chapter1 = novel.GetChapter(1);
@@ -43,7 +66,7 @@ namespace TestDrivenNovel.GenericNovelTests
         public void AllChaptersHaveTurningPoints()
         {
             // Arrange
-            var novel = new StuckOnATrain();
+            var novel = CreateNovel();
 
             for (int chapter = 1; chapter <= novel.NumChapters(); chapter++)
             {
@@ -58,7 +81,7 @@ namespace TestDrivenNovel.GenericNovelTests
         public void AllChaptersHaveOnlyOneTurningPoint()
         {
             // Arrange
-            var novel = new StuckOnATrain();
+            var novel = CreateNovel();
 
             for (int chapter = 1; chapter <= novel.NumChapters(); chapter++)
             {

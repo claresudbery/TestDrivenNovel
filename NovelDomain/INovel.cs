@@ -4,11 +4,11 @@
     {
         string Name { get; set; }
 
-        Character GetProtagonistAtEndOfChapter(int chapterNumber);
-
         int NumChapters();
 
         Character GetProtagonist();
+
+        string GetProtagonistEmotionAtStartOfChapter(int chapterNum);
 
         string GetProtagonistEmotionAtEndOfChapter(int chapterNum);
 

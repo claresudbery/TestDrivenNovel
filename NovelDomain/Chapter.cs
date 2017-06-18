@@ -6,6 +6,8 @@ namespace NovelDomain
     public sealed class Chapter
     {
         public List<NovelEvent> NovelEvents { get; set; }
+        public string StartEmotion { get; set; }
+        public string FinalEmotion { get; set; }
 
         public NovelEvent GetEvent(int eventNumber)
         {

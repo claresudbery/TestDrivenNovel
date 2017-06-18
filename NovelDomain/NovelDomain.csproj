@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="ActualNovels\NovelNames.cs" />
     <Compile Include="ActualNovels\NullNovel.cs" />
-    <Compile Include="ActualNovels\UnderstandMe\TheExperienceMaker.cs" />
+    <Compile Include="ActualNovels\TheExperienceMaker\TheExperienceMaker.cs" />
     <Compile Include="Chapter.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="NovelEvent.cs" />

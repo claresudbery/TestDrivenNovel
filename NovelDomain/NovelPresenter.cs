@@ -53,10 +53,10 @@ namespace NovelDomain
             }
             Console.WriteLine("It starts {0}.", novelEvent.StartLocation);
             Console.WriteLine("It ends {0}.", novelEvent.FinalLocation);
-            Console.WriteLine(novelEvent.Description);
+            Console.WriteLine(novelEvent.Summary);
             if (novelEvent.TurningPoint != null)
             {
-                if (novelEvent.TurningPoint == novelEvent.Description)
+                if (novelEvent.TurningPoint == novelEvent.Summary)
                 {
                     Console.WriteLine("It is a turning point.");
                 }

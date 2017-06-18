@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using NovelDomain;
 using NovelDomain.ActualNovels;
 using NovelDomain.ActualNovels.StuckOnATrain;
-using NovelDomain.ActualNovels.UnderstandMe;
 
 namespace NovelOutput
 {
