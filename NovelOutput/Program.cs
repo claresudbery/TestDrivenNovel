@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using NovelDomain;
+using NovelDomain.ActualNovels;
+using NovelDomain.ActualNovels.StuckOnATrain;
+using NovelDomain.ActualNovels.UnderstandMe;
 
 namespace NovelOutput
 {
@@ -12,22 +15,8 @@ namespace NovelOutput
     {
         static void Main(string[] args)
         {
-            var novel = new NovelPresenter(new StuckOnATrain());
-            Console.WriteLine("Welcome to my novel. It goes like this...");
-            try
-            {
-                novel.ShowText();
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to end.");
-                Console.ReadLine();
-                Console.WriteLine("OK, then, if you really must. Goodbye [sob].");
-                Thread.Sleep(System.TimeSpan.FromSeconds(2));
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Oopsidaisy! I done a boo boo.");
-                Thread.Sleep(System.TimeSpan.FromSeconds(5));
-            }
+            var novelFactory = new NovelFactory();
+            novelFactory.ChooseAndDisplayNovel();
         }
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Collections.Generic;
 
-namespace NovelDomain
+namespace NovelDomain.ActualNovels.StuckOnATrain
 {
     public sealed class StuckOnATrain : INovel
     {
@@ -11,7 +9,7 @@ namespace NovelDomain
 
         public StuckOnATrain()
         {
-            Name = "Stuck on a Train";
+            Name = NovelNames.StuckOnATrain;
             InitialiseProtagonist();
             InitialiseChapters();
         }

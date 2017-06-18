@@ -1,4 +1,6 @@
 ﻿using NovelDomain;
+using NovelDomain.ActualNovels;
+using NovelDomain.ActualNovels.StuckOnATrain;
 using NUnit.Framework;
 
 namespace TestDrivenNovel.StuckOnATrainTests
@@ -13,7 +15,7 @@ namespace TestDrivenNovel.StuckOnATrainTests
             var novel = new StuckOnATrain();
 
             // Assert
-            Assert.AreEqual("Stuck on a Train", novel.Name);
+            Assert.AreEqual(NovelNames.StuckOnATrain, novel.Name);
         } 
 
         [Test]

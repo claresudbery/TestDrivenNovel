@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using NovelDomain;
+using NovelDomain.ActualNovels.StuckOnATrain;
 using NUnit.Framework;
 
 namespace TestDrivenNovel.GenericNovelTests
