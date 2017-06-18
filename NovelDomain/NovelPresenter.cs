@@ -51,9 +51,10 @@ namespace NovelDomain
             {
                 Console.WriteLine("It is a crisis.");
             }
-            Console.WriteLine("It starts {0}.", novelEvent.StartLocation);
-            Console.WriteLine("It ends {0}.", novelEvent.FinalLocation);
+            WriteIf(string.Format("It starts {0}.", novelEvent.StartLocation)); 
+            WriteIf(string.Format("It ends {0}.", novelEvent.FinalLocation));
             Console.WriteLine(novelEvent.Summary);
+            ShowEventDescription(novelEvent.Description);
             if (novelEvent.TurningPoint != null)
             {
                 if (novelEvent.TurningPoint == novelEvent.Summary)
@@ -62,7 +63,27 @@ namespace NovelDomain
                 }
                 else
                 {
-                    Console.WriteLine("It has a turning point: {0}", novelEvent.TurningPoint);
+                    Console.WriteLine("This event has a turning point, when {0}", novelEvent.TurningPoint);
+                }
+            }
+        }
+
+        private void WriteIf(string text)
+        {
+            if (!string.IsNullOrEmpty(text))
+            {
+                Console.WriteLine(text);
+            }
+        }
+
+        private void ShowEventDescription(List<string> eventDescription)
+        {
+            if (eventDescription != null)
+            {
+                Console.WriteLine("Details:");
+                foreach (var line in eventDescription)
+                {
+                    Console.WriteLine(line);
                 }
             }
         }

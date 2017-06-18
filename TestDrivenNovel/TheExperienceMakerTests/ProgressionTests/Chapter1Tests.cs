@@ -18,8 +18,8 @@ namespace TestDrivenNovel.TheExperienceMakerTests.ProgressionTests
             string protagonistEmotionAtEndOfChapterOne = novel.GetProtagonistEmotionAtEndOfChapter(1);
 
             // Assert
-            Assert.AreEqual("Angry", protagonistEmotionAtStartOfChapterOne);
-            Assert.AreEqual("Relieved", protagonistEmotionAtEndOfChapterOne);
+            Assert.AreEqual("angry", protagonistEmotionAtStartOfChapterOne);
+            Assert.AreEqual("relieved", protagonistEmotionAtEndOfChapterOne);
         }
 
         [Test]
@@ -46,6 +46,20 @@ namespace TestDrivenNovel.TheExperienceMakerTests.ProgressionTests
 
             // Assert
             Assert.AreEqual("Seren exits from the experience and realises that she is not a murderer.", chapter1.GetEvent(1).TurningPoint);
+        }
+
+        [Test]
+        public void Protagonist_is_in_court_at_start_of_book()
+        {
+            // Arrange
+            var novel = new TheExperienceMaker();
+
+            // Act
+            var chapter = novel.GetChapter(1);
+            var firstEvent = chapter.GetEvent(1);
+
+            // Assert
+            Assert.AreNotEqual("on the train", firstEvent.StartLocation);
         }
     }
 }
